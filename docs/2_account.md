@@ -35,22 +35,22 @@ Optional:
 -  `Array of Object` -  *xpubs*, 公钥数组
 
 #### 例子
-```php
-$client = BytomClient::createAccount($root_xpubs = [], $alias, $quorum = 1);
-console_($client);
+```java
+Client client = TestUtils.generateClient();
+String alias = "AccountTest.testAccountCreate.002";
+Integer quorum = 1;
+List<String> root_xpubs = new ArrayList<>();
+root_xpubs.add("c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5");
+Account.Builder builder = new Account.Builder().setAlias(alias).setQuorum(quorum).setRootXpub(root_xpubs);
+Account account = Account.create(client, builder);
+System.out.println(account);
 ```
 
-```json
+```bash
 // Result
-{
-  "alias": "alice",
-  "id": "08FO663C00A02",
-  "key_index": 1,
-  "quorum": 1,
-  "xpubs": [
-    "2d6c07cb1ff7800b0793e300cd62b6ec5c0943d308799427615be451ef09c0304bee5dd492c6b13aaa854d303dc4f1dcb229f9578786e19c52d860803efa3b9a"
-  ]
-}
+INFO  [2019-04-23 16:39:23]  create-account
+INFO  [2019-04-23 16:39:23]  Account{id='0RKNGHTRG0A08', alias='accounttest.testaccountcreate.002', key_index=3, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}
+Account{id='0RKNGHTRG0A08', alias='accounttest.testaccountcreate.002', key_index=3, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}
 ```
 
 ## list-accounts

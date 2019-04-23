@@ -21,20 +21,17 @@ sidebar_label: Bytom.Key.API
 
 - `String` - *file* , 私钥文件在本地的存放路径
 #### 例子
-```php
-$alias = 'alice';
-$pwd = '123456';
-//调用BytomClient类下的createKey方法，传入alias和password两个参数
-$client = BytomClient::createKey($alias, $password); 
-console_($client);
+```java
+Client client = Client.generateClient();
+String alias = "testJava1";
+String password = "123456";
+Key.Builder builder = new Key.Builder().setAlias(alias).setPassword(password);
+Key key = Key.create(client, builder);
+System.out.println(key);
 ```
-```json
+```bash
 // Result
-{
-  "alias": "alice",
-  "xpub": "a7dae957c2d35b42efe7e6871cf5a75ebd2a0d0e51caffe767db42d3e6d69dbe211d1ca492ecf05908fe6fa625ad61b3253375ea744c9442dd5551613ba50aea",
-  "file": "/Path/To/Library/Bytom/keystore/UTC--2018-04-22T06-30-27.609315219Z--0e34293c-8856-4f5f-b934-37456a3820fa"
-}
+Key{alias='testjava1', xpub='57011d2ed46aafe47c9c77f6f3b4cef95ba19474f50d918fefe71a675ac15413c8e733ff6581b311d89bbfb5fedc34de4e7f6aedf2f5ac1f1b56cedc5a23ece9', file='C:\Users\mumu\AppData\Roaming\Bytom\keystore\UTC--2019-04-23T07-19-41.724077700Z--532f7a7a-86d7-44c5-b624-c547be0bd050'}
 ```
 ## list-keys
 
@@ -51,24 +48,15 @@ none
     - `String`  - *alias* , 私钥的名字
     - `String` - *xpub*, 公钥
 #### 例子
-```php
-$client = BytomClient::listKeys();
-console_($client);
+```java
+Client client = Client.generateClient();
+List<Key> keyList = Key.list(client);
 ```
-```json
+```bash
 // Result
-[
-  {
-    "alias": "alice",
-    "xpub": "a7dae957c2d35b42efe7e6871cf5a75ebd2a0d0e51caffe767db42d3e6d69dbe211d1ca492ecf05908fe6fa625ad61b3253375ea744c9442dd5551613ba50aea",
-    "file": "/Path/To/Library/Bytom/keystore/UTC--2018-04-21T02-35-15.035935116Z--4f2b8bd7-0576-4b82-8941-6cc6da05efe3"
-  },
-  {
-    "alias": "bob",
-    "xpub": "d30a810e88532f73816b7b5007d413cbd21e526ae9159023e5262511893adc1526b8eacd691b27c080201d7d79336a4f3d2cb4c167d997821cad445765916254",
-    "file": "/Path/To/Library/Bytom/keystore/UTC--2018-04-22T06-30-27.609315219Z--0e34293c-8856-4f5f-b934-37456a3820fa"
-  }
-]
+1    INFO  [2019-04-23 16:05:00]  list-key:
+2    INFO  [2019-04-23 16:05:00]  size of key:3
+3    INFO  [2019-04-23 16:05:00]  [Key{alias='alice', xpub='872e6fbe0ad47b0ff6435bcc4c18fd0c00631afe6c4433938fd7059f32d9c26bb888d0f112cbc07880a1d9ef50111154fa34570233bda070503f6fbe94daf974', file='C:\Users\mumu\AppData\Roaming\Bytom\keystore\UTC--2019-04-04T01-40-00.441340200Z--653ae5ff-84d2-4949-9784-28ca70809f58'}, Key{alias='bob', xpub='4874e557e062778cba85825064f41e2ca0f61478a1469df0eb5ea35d457de5c317a0520f672cbd98186cf5d26f823d93d926f6383db54bae7fcc92ff975b2215', file='C:\Users\mumu\AppData\Roaming\Bytom\keystore\UTC--2019-04-04T07-56-42.134038700Z--13a3e5cb-0fce-46ed-a845-9b6d2380dab9'}, Key{alias='testjava1', xpub='57011d2ed46aafe47c9c77f6f3b4cef95ba19474f50d918fefe71a675ac15413c8e733ff6581b311d89bbfb5fedc34de4e7f6aedf2f5ac1f1b56cedc5a23ece9', file='C:\Users\mumu\AppData\Roaming\Bytom\keystore\UTC--2019-04-23T07-19-41.724077700Z--532f7a7a-86d7-44c5-b624-c547be0bd050'}]
 ```
 
 ## delete-key
@@ -79,15 +67,16 @@ console_($client);
 #### 返回
 如果删除成功则返回none
 #### 例子
-```php
-$res = BytomClient::deleteKey($xpub, $password);//实例化一个删除对象
-$this->assertEquals(200, $res->getHTTPStatus());//获取请求网络状态，若为200则成功
-$client = $this->assertTrue($res->isSucceeded());
-console_($client)
+```java
+Client client = Client.generateClient();
+List<Key> keyList = Key.list(client);
+String xpub = keyList.get(keyList.size()-1).xpub;
+//删除最后一个密钥
+Key.delete(client, xpub, "123456");
 ```
-```json
+```bash
 // Result
-// none
+INFO  [2019-04-23 16:25:52]  delete-key successfully.
 ```
 ##  reset-key-password
 
@@ -101,18 +90,16 @@ console_($client)
 
 #### 返回
 
-- `Boolean` - *changed* ,判断重置密钥密码后的状态，若为success则返回true
+如修改成功则返回none
 
 #### 例子
-```php
-$res = BytomClient::resetKeyPassword($xpub, $old_password, $new_password);
-$this->assertEquals(200, $res->getHTTPStatus());//获取请求网络状态，若为200则成功
-$client = $this->assertTrue($res->isSucceeded());
-console_($client)
+```java
+Client client = Client.generateClient();
+List<Key> keyList = Key.list(client);
+String xpub = keyList.get(keyList.size()-1).xpub;
+Key.resetPassword(client, xpub, "123456", "123456789");
 ```
-```json
+```bash
 // Result
-{
-  "changed": true
-}
+//none
 ```
