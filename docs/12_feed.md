@@ -18,10 +18,16 @@ sidebar_label: Bytom.Feed.API
 如果交易反馈已成功创建，返回none。
 
 #### 例子
-```php
-BytomClient::createTransactionFeed($alias, $filter);
+```java
+Client client = TestUtils.generateClient();
+String filter = "asset_id='57fab05b689a2b8b6738cffb5cf6cffcd0bf6156a04b7d9ba0173e384fe38c8c' AND amount_lower_limit = 50 AND amount_upper_limit = 100";
+String alias = "test";
+new Transaction.Feed.Builder()
+    .setAlias(alias)
+    .setFilter(filter)
+    .create(client);
 ```
-```js
+```bash
 // Result
 //none
 ```
@@ -55,16 +61,16 @@ BytomClient::createTransactionFeed($alias, $filter);
 #### 例子
 
 列出别名可用的txfeed：
-```php
-BytomClient::getTransactionFeed($alias);
+```java
+Client client = TestUtils.generateClient();
+String alias = "test2";
+Transaction.Feed transactionFeed = Transaction.Feed.getByAlias(client, alias);
+
+Assert.assertNotNull(transactionFeed);
 ```
-```js
+```bash
 // Result
-{
-  "alias": "test1",
-  "filter": "asset_id='84778a666fe453cf73b2e8c783dbc9e04bc4fd7cbb4f50caeaee99cf9967ebed' AND amount_lower_limit = 50 AND amount_upper_limit = 100",
-  "param": {}
-}
+{"alias":"test2","filter":"asset_id\u003d\u002757fab05b689a2b8b6738cffb5cf6cffcd0bf6156a04b7d9ba0173e384fe38c8c\u0027 AND amount_lower_limit \u003d 50 AND amount_upper_limit \u003d 100","param":{"assetid":"57fab05b689a2b8b6738cffb5cf6cffcd0bf6156a04b7d9ba0173e384fe38c8c","lowerlimit":50,"upperlimit":100}}
 ```
 
 ## list-transaction-feeds
@@ -96,23 +102,15 @@ none
 #### 例子
 
 列出所有可用的txfeed：
-```php
-BytomClient::listTransactionFeeds();
+```java
+Client client = TestUtils.generateClient();
+List<Transaction.Feed> txFeedList = Transaction.Feed.list(client);
+Assert.assertNotNull(txFeedList);
 ```
-```js
+```bash
 // Result
-[
-  {
-    "alias": "test1",
-    "filter": "asset_id='84778a666fe453cf73b2e8c783dbc9e04bc4fd7cbb4f50caeaee99cf9967ebed' AND amount_lower_limit = 50 AND amount_upper_limit = 100",
-    "param": {}
-  },
-  {
-    "alias": "test2",
-    "filter": "asset_id='cee6a588cc3fc280749021ef42d5209952a1e6feceada4e69dd8a424ad22b199' AND amount_lower_limit = 30 AND amount_upper_limit = 100",
-    "param": {}
-  }
-]
+{"alias":"test1","filter":"asset_id\u003d\u002784778a666fe453cf73b2e8c783dbc9e04bc4fd7cbb4f50caeaee99cf9967ebed\u0027 AND amount_lower_limit \u003d 60 AND amount_upper_limit \u003d 80","param":{"assetid":"84778a666fe453cf73b2e8c783dbc9e04bc4fd7cbb4f50caeaee99cf9967ebed","lowerlimit":60,"upperlimit":80}}
+{"alias":"test2","filter":"asset_id\u003d\u002757fab05b689a2b8b6738cffb5cf6cffcd0bf6156a04b7d9ba0173e384fe38c8c\u0027 AND amount_lower_limit \u003d 50 AND amount_upper_limit \u003d 100","param":{"assetid":"57fab05b689a2b8b6738cffb5cf6cffcd0bf6156a04b7d9ba0173e384fe38c8c","lowerlimit":50,"upperlimit":100}}
 ```
 
 ## delete-transaction-feed
@@ -125,15 +123,19 @@ BytomClient::listTransactionFeeds();
 
 #### 返回
 
-如果交易反馈删除成功，则无返回.
+如果交易反馈删除成功，则返回successfully.
 
 #### 例子
-```php
-BytomClient::deleteTransactionFeed($alias);
+```java
+Client client = TestUtils.generateClient();
+String filter = "asset_id='57fab05b689a2b8b6738cffb5cf6cffcd0bf6156a04b7d9ba0173e384fe38c8c' AND amount_lower_limit = 50 AND amount_upper_limit = 100";
+String alias = "test2";
+
+Transaction.Feed.update(client, alias, filter);
 ```
-```js
+```bash
 // Result
-//none
+update-transaction-feed successfully
 ```
 
 ## update-transaction-feed
@@ -147,15 +149,17 @@ BytomClient::deleteTransactionFeed($alias);
 
 #### 返回
 
-如果交易反馈更新成功无返回.
+如果交易反馈更新成功，则返回successfully.
 
 #### 例子
 
 当交易反馈存在的时候删除它，并使用别名和过滤器创建它:
-```php
-BytomClient::updateTransactionFeed($alias, $filter);
+```java
+Client client = TestUtils.generateClient();
+String alias = "test2";
+Transaction.Feed.deleteByAlias(client, alias);
 ```
-```js
+```bash
 // Result
-//none
+delete-transaction-feed successfully
 ```

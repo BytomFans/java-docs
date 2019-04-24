@@ -50,8 +50,11 @@ sidebar_label: Bytom.Transaction.API
 
 #### 例子
 
-```php
-BytomClient::getTransaction($tx_id);
+```java
+Client client = TestUtils.generateClient();
+Transaction.QueryBuilder builder = new Transaction.QueryBuilder();
+builder.setAccountId("0ER7MEFGG0A02");
+Transaction tx = builder.get(client);
 ```
 
 ```js
@@ -204,8 +207,10 @@ BytomClient::getTransaction($tx_id);
 #### 例子
 
 列出所有可用的交易：
-```php
-BytomClient::listTransactions();
+```java
+Client client = TestUtils.generateClient();
+Transaction.QueryBuilder transaction = new Transaction.QueryBuilder();
+List<Transaction> transactionList = transaction.list(client);
 ```
 
 ```js
@@ -553,9 +558,8 @@ BytomClient::listTransactions();
 #### 参数
 
 - `String` - *base_transaction*, 交易基本数据, 默认为空.
-
 - `Integer` - *ttl*,时间，单位为秒.
-- 
+- `Integer` - *time_range*，时间戳.
 - `Arrary of Object` - *actions* :
     - `String` - *account_id* | *account_alias*, 别名或帐户ID.
     - `String` - *asset_id* | *asset_alias*, 资产的别名或ID.
@@ -567,10 +571,24 @@ BytomClient::listTransactions();
 #### 返回
 - `Object of build-transaction` -  *transaction*, 构建好的交易..
 #### 例子
-```php
-BytomClient::buildTransaction($actions = [], $base_transaction = null, $ttl = 0);
+```java
+Client client = TestUtils.generateClient();
+Transaction.Template controlAddress = new Transaction.Builder()
+    .addAction(
+    new Transaction.Action.SpendFromAccount()
+    .setAccountId(senderAccount.id)
+    .setAssetId(senderAsset.id)
+    .setAmount(300000000)
+	)
+    .addAction(
+    new Transaction.Action.ControlWithAddress()
+    .setAddress(receiverAddress.address)
+    .setAssetId(senderAsset.id)
+    .setAmount(200000000)
+	).build(client);
 ```
 ```js
+//Result示例
 {
   "allow_additional_actions": false,
   "local": true,
@@ -646,8 +664,8 @@ BytomClient::buildTransaction($actions = [], $base_transaction = null, $ttl = 0)
 
 #### 例子
 
-```php
-BytomClient::signTransaction($password, $transaction);
+```java
+Transaction.Template singer = new Transaction.SignerBuilder().sign(client,controlAddress, "123456");
 ```
 
 ```js
@@ -727,8 +745,8 @@ BytomClient::signTransaction($password, $transaction);
 - `String` - *tx_id*, 交易id 交易hash.
 
 #### 例子
-```php
-BytomClient::submitTransaction($raw_transaction);
+```java
+Transaction.SubmitResponse txs = Transaction.submit(client, singer);
 ```
 ```js
 // Result
@@ -752,10 +770,10 @@ BytomClient::submitTransaction($raw_transaction);
 - `Integer` - *vm_neu*, 虚拟机执行消耗的neu.
 
 ##### 例子
-```php
-BytomClient::estimateTransactionGas($transaction_template);
+```java
+TransactionGas.estimateGas(Client client, Template template);
 ```
-```js
+```bash
 // Result
 {
   "storage_neu": 3840000,
@@ -784,10 +802,13 @@ BytomClient::estimateTransactionGas($transaction_template);
 - `Array of Object` - *outputs*, 交易输出对象(输出结构请参考get-transction API描述).
 
 #### 例子
-```php
-BytomClient::getUnconfirmedTransaction($tx_id);
+```java
+Client client = TestUtils.generateClient();
+utxResponse = UnconfirmedTransaction.list(client);
+unconfirmedTransaction = UnconfirmedTransaction.get(client, utxResponse.txIds.get(0));
+Assert.assertNotNull(unconfirmedTransaction);
 ```
-```js
+```bash
 // Result
 {
   "id": "382090f24fbfc2f737fa7372b9d161a43f00d1c597a7130a56589d1f469d04b5",
@@ -846,10 +867,12 @@ none
 - `Array of Object` - *tx_ids*, 列出所有交易id.
 
 #### 例子
-```php
-BytomClient::listUnconfirmedTransactions()
+```java
+Client client = TestUtils.generateClient();
+utxResponse = UnconfirmedTransaction.list(client);
+Assert.assertNotNull(utxResponse);
 ```
-```js
+```bash
 // Result
 {
   "total": 2,
@@ -878,10 +901,13 @@ BytomClient::listUnconfirmedTransactions()
 - `Array of Object` - *outputs*, 交易输出对象(输出结构请参考get-transction API描述).
 
 #### 例子
-```php
-BytomClient::decodeRawTransaction($raw_transaction)
+```java
+Client client = TestUtils.generateClient();
+String rawTxId = "070100010161015f30e052cd50e385951936c08fb5642bd12b727da958960249ddad8c9a77e5371fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8099c4d59901000116001412a47b53b3bbdaf9f3510e1d8c19d69f81ca91426302405a8b5adebd2ab63ba1ac55a7bbadc1fe246806c37732df0442b827fa4e06058137711d9d012becdc9de507a8ad0de0dd50780c0503c0dcff2dc03d7592e31a08206e1efce70e2b29efa348aec7c148edc2beb72edc0d4422a03cfb0f40e6e4cfc602013effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80d3bdc6980101160014a9c0ea4abe4d09546197bac3c86f4dd39fde1afb00013cffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8084af5f011600144cc6edb1f4077c740e0201bb3688e6efba4a098c00";
+rawTransaction = RawTransaction.decode(client, rawTxId);
+Assert.assertNotNull(rawTransaction);
 ```
-```js
+```bash
 // Result
 {
   "fee": 20000000,

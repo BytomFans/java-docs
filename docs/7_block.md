@@ -17,14 +17,13 @@ none
 - `Integer` - *block_count*, 当前的区块高度.
 
 #### 例子
-```php
-BytomClient::getBlockCount();
+```java
+Client client = TestUtils.generateClient();
+int count = Block.getBlockCount(client);
 ```
-```js
+```bash
 // Result
-{
-    "block_count": 519
-}
+get-block-count:220928
 ```
 
 ## get-block-hash
@@ -40,14 +39,13 @@ none
 - `String` - *block_hash*, 最近的区块hash.
 
 #### 例子
-```php
-BytomClient::getBlockHash();
+```java
+Client client = TestUtils.generateClient();
+String blockHash = Block.getBlockHash(client);
 ```
-```js
+```bash
 // Result
-{
-  "block_hash": "997bf5cecb4df097991a7a121a7fd3cb5a404fa856e3d6032c791ac07bc7c74c"
-}
+get-block-hash:1f95cdb223af190f2a9aced5931e0845e3e9f89d5e6bbb1605a2df725bcda67c
 ```
 
 ## get-block
@@ -135,10 +133,17 @@ BytomClient::getBlockHash();
 #### 例子
 
 通过block_hash或block_height获取指定的块信息，如果两者都存在，则块结果通过哈希查询。
-```php
-BytomClient::getBlock($block_hash, $block_height);
+```java
+Client client = TestUtils.generateClient();
+int height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block block = new Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getBlock(client);
 ```
-```js
+```bash
 // Result
 {
   "bits": 2305843009222082600,
@@ -205,10 +210,17 @@ BytomClient::getBlock($block_hash, $block_height);
 - `Integer` - *reward*, 区块奖励.
 
 #### 例子
-```php
-BytomClient::getBlockHeader($block_hash, $block_height);
+```java
+Client client = TestUtils.generateClient();
+int height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block.BlockHeader blockHeader = new Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getBlockHeader(client);
 ```
-```js
+```bash
 // Result
 {
   "block_header": "01019601e87da37e7d73f31d54304c719c9058ec7bc7de7819deda89a7c8834a99bc05b8fbdbe6d60540eba9e5d5cb79fd87b3c0fad32f6772c1e4483f2a070e093a6176d85226d986a8c9c377e5192668bc0a367e4a4764f11e7c725ecced1d7b6a492974fab1b6d5bc00ad918480808080801e",
@@ -235,10 +247,17 @@ BytomClient::getBlockHeader($block_hash, $block_height);
 ##### 例子
 
 为当前块或指定的块散列/高度获取困难。
-```php
-BytomClient::getDifficulty($block_hash, $block_height);
+```java
+Client client = TestUtils.generateClient();
+int height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block.BlockDifficulty blockDifficulty = new Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getBlockDifficulty(client);
 ```
-```js
+```bash
 // Result
 {
   "bits": 2161727821137910500,
@@ -266,15 +285,18 @@ BytomClient::getDifficulty($block_hash, $block_height);
 #### 例子
 
 获取当前块或指定块散列/高度的哈希率。
-```php
-BytomClient::getHashRate($block_hash, $block_height);
+```java
+Client client = TestUtils.generateClient();
+int height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block.BlockHashRate blockHashRate = new Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getHashRate(client);
 ```
-```js
+```bash
 // Result
-{
-  "hash": "d1fce60caea5466eae2b812e4586b55120c52aca27b6c92bd7c51e9cda82dcdf",
-  "hash_rate": 7577403,
-  "height": 506
-}
+{"hash":"1f95cdb223af190f2a9aced5931e0845e3e9f89d5e6bbb1605a2df725bcda67c","height":220928,"hash_rate":399323574}
 ```
 

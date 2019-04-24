@@ -68,57 +68,16 @@ none
   - `Array of Object` - xpubs, 公钥数组
 #### 例子
 
-```php
-$bytom = new BytomClient();
-$res = $bytom->listAccounts();   //实例化一个对象
-$this->assertEquals(200, $res->getHTTPStatus());//判断请求状态是否为200，是则为成功
-$data = $this->assertTrue($res->isSucceeded());
-console_($data);
+```java
+Client client = TestUtils.generateClient();
+List<Account> accountList = Account.list(client);
 ```
 
-```json
+```bash
 // Result
-[
-  {
-    "alias": "alice",
-    "id": "086KQD75G0A02",
-    "key_index": 1,
-    "quorum": 1,
-    "xpubs": [
-      "180aab8bf247932a7cf68da5cc9a873266279155097612f1e5fdda4add88d5e91e2e7ce5b736f3ac933824cdee9effcf1531b90dfcb388e5cc306d14e9a2c85e"
-    ]
-  },
-  {
-    "alias": "bob",
-    "id": "086KQO67G0A04",
-    "key_index": 2,
-    "quorum": 1,
-    "xpubs": [
-      "180aab8bf247932a7cf68da5cc9a873266279155097612f1e5fdda4add88d5e91e2e7ce5b736f3ac933824cdee9effcf1531b90dfcb388e5cc306d14e9a2c85e"
-    ]
-  }
-]
-```
-
-## update-account-alias
-
-按账户id或账户别名更新账户别名。
-
-#### 参数
-
-- `String` - *account_id*, 账户id
-- `String` - *account_alias*, 账户别名
-- `String` - *new_alias*，账户的新别名 
-#### 返回
-如果账户别名更新成功，status为success。
-#### 例子
-```php
-\\\\\
-```
-
-```json
-// Result
-{"status":"success"}
+INFO  [2019-04-23 16:47:25]  list-accounts:
+INFO  [2019-04-23 16:47:25]  size of accountList:3
+INFO  [2019-04-23 16:47:25]  [Account{id='0QRSNOQE00A02', alias='alice', key_index=1, quorum=1, xpubs=[872e6fbe0ad47b0ff6435bcc4c18fd0c00631afe6c4433938fd7059f32d9c26bb888d0f112cbc07880a1d9ef50111154fa34570233bda070503f6fbe94daf974]}, Account{id='0RKCD5TR00A04', alias='accounttest.testaccountcreate.002', key_index=1, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}, Account{id='0RKCF7B800A06', alias='accounttest.testaccountcreate.002', key_index=2, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}, Account{id='0RKNGHTRG0A08', alias='accounttest.testaccountcreate.002', key_index=3, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}]
 ```
 
 ## delete-account
@@ -130,10 +89,12 @@ console_($data);
 #### 返回
 如果账户已成功删除，则为none
 #### 例子
-```php
-$client = BytomClient::deleteAccount($account_info);
+```java
+Client client = TestUtils.generateClient();
+String id = "0QRSNOQE00A02";
+Account.delete(client, id);
 ```
-```json
+```bash
 //none
 ```
 ## create-account-receiver
@@ -141,21 +102,25 @@ $client = BytomClient::deleteAccount($account_info);
 #### 参数
 `Object`: *account_alias | account_id*, 账户别名或账户id
 可选：
+
 - `String` - *account_alias*, 账户别名
 - `String` - *account_id*, 账户id
 #### 返回
 - `String` - *address*, 账户地址
 - `String` - *control_program*, 账户的控制程序
 #### 例子
-```php
-$client = BytomClient::createAccountReceiver($account_alias, $account_id);
+```java
+Client client = TestUtils.generateClient();
+String alias = "test1";
+String id = "0RKNGHTRG0A08";
+Account.ReceiverBuilder receiverBuilder = new Account.ReceiverBuilder().setAccountAlias(alias).setAccountId(id);
+
+Receiver receiver = receiverBuilder.create(client);
+System.out.println(receiver);
 ```
-```json
+```bash
 // Result
-{
-    "address": "bm1q5u8u4eldhjf3lvnkmyl78jj8a75neuryzlknk0",
-    "control_program": "0014a70fcae7edbc931fb276d93fe3ca47efa93cf064"
-}
+{"address":"bm1q87xrkeha33sgyn0gtj2pdxfcn22u78263yqfx7","control_program":"00143f8c3b66fd8c60824de85c941699389a95cf1d5a"}
 ```
 
 ## list-addresses
@@ -176,10 +141,15 @@ $client = BytomClient::createAccountReceiver($account_alias, $account_id);
 
 ####  例子
 
-```php
-BytomClient::listAddresses($account_alias, $account_id);
+```java
+Client client = TestUtils.generateClient();
+String alias = "test1";
+String id = "0RKNGHTRG0A08";
+Account.AddressBuilder addressBuilder = new Account.AddressBuilder().setAccountId(id).setAccountAlias(alias);
+
+List<Account.Address> addressList = addressBuilder.list(client);
 ```
-```json
+```bash
 // Result
 [
   {
@@ -219,14 +189,18 @@ BytomClient::listAddresses($account_alias, $account_id);
 
 #### 例子
 
-```php
-BytomClient::validateAddress($address);
+```java
+Client client = TestUtils.generateClient();
+String alias = "test1";
+String id = "0RKNGHTRG0A08";
+
+Account.AddressBuilder addressBuilder = new Account.AddressBuilder().setAccountId(id).setAccountAlias(alias);
+List<Account.Address> addressList = addressBuilder.list(client);
+
+Account.Address address = addressBuilder.validate(client, addressList.get(0).address);
 ```
 
-```json
+```bash
 // Result
-{
-   "vaild": true,
-   "is_local": true,
-}
+{"is_local":true}
 ```

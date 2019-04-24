@@ -26,19 +26,13 @@ none
 - `String` - *version*, 比原版本.
 
 #### 例子
-```php
-BytomClient::netInfo();
+```java
+Client client = TestUtils.generateClient();
+netInfo = CoreConfig.getNetInfo(client);
+Assert.assertNotNull(netInfo);
 ```
-```js
+```bash
 // Result
-{
-  "listening": true,
-  "syncing": true,
-  "mining": true,
-  "peer_count": 0,
-  "current_block": 627,
-  "highest_block": 0,
-  "network_id": "mainnet",
-  "version": "0.5.0"
-}
+{"listening":true,"syncing":false,"mining":false,"peer_count":4,"current_block":220923,"highest_block":220923,"network_id":"mainnet"}
 ```
+

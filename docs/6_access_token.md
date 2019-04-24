@@ -24,18 +24,16 @@ optional:
 - `Object` - *created_at*, token创建时间.
 
 ##### 例子
-```php
-BytomClient::createAccessToken($token_id);
+```java
+Client client = TestUtils.generateClient();
+AccessToken accessToken = new AccessToken.Builder().setId("token1").create(client);
 ```
-```js
-// Request
-curl -X POST create-access-token -d '{"id":"token1"}'
-
+```bash
 // Result
 {
   "token": "token1:1fee70f537128a201338bd5f25a3adbf33dad02eae4f4c9ac43f336a069df8f3",
   "id": "token1",
-  "created_at": "2018-03-20T18:56:01.043919771+08:00"
+  "created_at": "2019-04-24T16:57:08.7091984+08:00"
 }
 ```
 
@@ -59,10 +57,11 @@ none
 ##### 例子
 
 列出所有可用的access token。
-```php
-BytomClient::listAccessTokens();
+```java
+Client client = TestUtils.generateClient();
+List<AccessToken> tokenList = AccessToken.list(client);
 ```
-```js
+```bash
 // Result
 [
   {
@@ -95,10 +94,12 @@ BytomClient::listAccessTokens();
 #### 例子
 
 删除access token
-```php
-BytomClient::deleteAccessToken($token_id);
+```java
+Client client = TestUtils.generateClient();
+String secret = "1fee70f537128a201338bd5f25a3adbf33dad02eae4f4c9ac43f336a069df8f3";
+AccessToken.delete(client, "token1", secret);
 ```
-```js
+```bash
 // Result
 //none
 ```
@@ -122,10 +123,12 @@ BytomClient::deleteAccessToken($token_id);
 #### 例子
 
 检查access token是否有效。
-```php
-BytomClient::checkAccessToken($token_id, $secret);
+```java
+Client client = TestUtils.generateClient();
+String secret = "1fee70f537128a201338bd5f25a3adbf33dad02eae4f4c9ac43f336a069df8f3";
+AccessToken.check(client, "token1", secret);
 ```
-```js
+```bash
 // Result
 //none
 ```

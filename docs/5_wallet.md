@@ -19,14 +19,12 @@ none
 - `Object` - *key_images*, 秘钥镜像
 
 #### 例子
-```php
-BytomClient::backupWallet();
+```java
+Client client = TestUtils.generateClient();
+Wallet wallet = Wallet.backupWallet(client);
 ```
 
-```js
-// Request
-curl -X backup-wallet -d {}
-
+```bash
 // Result
 {
   "account_image": {
@@ -117,10 +115,12 @@ curl -X backup-wallet -d {}
 如果恢复钱包成功，返回none
 
 #### 例子
-```php
-BytomClient::restoreWallet();
+```java
+Client client = TestUtils.generateClient();
+Wallet wallet = Wallet.backupWallet(client);
+Wallet.restoreWallet(client, wallet.accountImage, wallet.assetImage, wallet.keyImages);
 ```
-```js
+```bash
 // Result
 //none
 ```

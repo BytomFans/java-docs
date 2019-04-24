@@ -20,10 +20,16 @@ sidebar_label: Bytom.Message.API
 - `String` - *signature*, 消息的签名.
 
 #### 例子
-```php
-BytomClient::signMessage($address, $message, $password);
+```java
+Client client = TestUtils.generateClient();
+Message message = new Message.SignBuilder()
+    .setAddress("bm1qx2qgvvjz734ur8x5lpfdtlau74aaa5djs0a5jn")
+    .setMessage("test")
+    .setPassword("123456")
+    .sign(client);
+Assert.assertNotNull(message);
 ```
-```js
+```bash
 // Result
 {
   "signature": "74da3d6572233736e3a439166719244dab57dd0047f8751b1efa2da26eeab251d915c1211dcad77e8b013267b86d96e91ae67ff0be520ef4ec326e911410b609",
@@ -50,12 +56,22 @@ BytomClient::signMessage($address, $message, $password);
 - `Boolean` - *result*, 验证结果.
 
 #### 例子
-```php
-BytomClient::verifyMessage($address, $derived_xpub, $message, $signature);
+```java
+Client client = TestUtils.generateClient();
+String derived_xpub = "6e1efce70e2b29efa348aec7c148edc2beb72edc0d4422a03cfb0f40e6e4cfc6e6050b5863bbe84c44131280dff68614e0308a4d081e8b677d0f7f09fb3390c4";
+String signature = "0d840d5b6a6df028013260e94e871c1443686c446a65db4ee93005c5395c3607feb0ac5bf583a3139c8a3d0afe757448ff49fa17ffd2377831ce5f925c846b0b";
+
+Boolean verify = new Message.VerifyBuilder()
+    .setDerivedXpub(derived_xpub)
+    .setSignature(signature)
+    .setAddress("bm1qx2qgvvjz734ur8x5lpfdtlau74aaa5djs0a5jn")
+    .setMessage("test")
+    .verifyMessage(client);
 ```
-```js
+```bash
 // Result
 {
   "result": true
 }
 ```
+

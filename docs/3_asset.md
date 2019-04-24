@@ -30,28 +30,21 @@ sidebar_label: Bytom.Asset.API
 
 #### 例子
 
-```php
-BytomClient::createAsset($root_xpubs = [], $alias, $quorum = 1);
+```java
+Client client = TestUtils.generateClient();
+List<Account> accountList = Account.list(client);
+String alias = "GOLD";
+List<String> xpubs = accountList.get(0).xpubs;
+Asset.Builder builder = new Asset.Builder()
+    .setAlias(alias)
+    .setQuorum(1)
+    .setRootXpubs(xpubs);
+System.out.println(builder);
 ```
 
-```json
+```bash
 // Result
-{
-  "id": "3c1cf4c9436e3f942cb2f1d70a584f1c61df3697698dacccdc89e46f46a003d0",
-  "alias": "GOLD",
-  "issuance_program": "766baa209683b893483c0a5a317bf9868a8e2a09691f8aa8c1f3e2a7bb62b157e76712e05151ad696c00c0",
-  "keys": [
-    {
-      "root_xpub": "f6a16704f745a168642712060e6c5a69866147e21ec2447ae628f87d756bb68cc9b91405ad0a95f004090e864fde472f62ba97053ea109837bc89d63a64040d5",
-      "asset_pubkey": "9683b893483c0a5a317bf9868a8e2a09691f8aa8c1f3e2a7bb62b157e76712e012bd443fa7d56a0627df0a29dffcdc52641672a0f5cba54d104ad76ebeb8dfc3",
-      "asset_derivation_path": [
-        "000200000000000000"
-      ]
-    }
-  ],
-  "quorum": 1,
-  "definition": {}
-}
+Builder{alias='GOLD', definition=null, rootXpubs=[872e6fbe0ad47b0ff6435bcc4c18fd0c00631afe6c4433938fd7059f32d9c26bb888d0f112cbc07880a1d9ef50111154fa34570233bda070503f6fbe94daf974], quorum=1, access_token='null'}
 ```
 
 ## get-asset
@@ -81,26 +74,17 @@ BytomClient::createAsset($root_xpubs = [], $alias, $quorum = 1);
 - `Object` - *definition*, 资产描述
 
 #### 例子
-```php
-BytomClient::getAsset($asset_id);
+```java
+Client client = TestUtils.generateClient();
+Asset.QueryBuilder queryBuilder = new Asset.QueryBuilder();
+String id = queryBuilder.list(client).get(1).id;
+queryBuilder.setId(id);
+Asset asset = queryBuilder.get(client);
 ```
 
-```json
+```bash
 // Result
-{
-  "alias": "SILVER",
-  "definition": null,
-  "id": "50ec80b6bc48073f6aa8fa045131a71213c33f3681203b15ddc2e4b81f1f4730",
-  "issue_program": "ae2029cd61d9ef31d40af7541f9a50831d6317fdb0870249d0564fcfa9a8f843589c5151ad",
-  "key_index": 1,
-  "quorum": 1,
-  "raw_definition_byte": "",
-  "type": "asset",
-  "vm_version": 1,
-  "xpubs": [
-    "34b16ee500615cd325f8b84099f83c1ebecaca67977c5dc9b71ae32ceaf18207f996b0a9725b901d3792689b2babcb60febe3b81a684d9b56b65f67f307d453d"
-  ]
-}
+{"id":"57ba2e10543e35f682d4e47729da3c6da0372a94b4c6d04fe59bd389e2e68edc","alias":"HELLOWORLD","key_index":1,"xpubs":["f6a16704f745a168642712060e6c5a69866147e21ec2447ae628f87d756bb68cc9b91405ad0a95f004090e864fde472f62ba97053ea109837bc89d63a64040d5"],"quorum":1,"definition":{"decimals":8.0,"description":{},"name":"GOLD","symbol":"GOLD"},"vm_version":1,"type":"asset","raw_definition_byte":"7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022474f4c44222c0a20202273796d626f6c223a2022474f4c44220a7d"}
 ```
 
 ## list-assets
@@ -127,45 +111,15 @@ none
 
 #### 例子
 
-```php
-BytomClient::listAssets();
+```java
+Client client = TestUtils.generateClient();
+Asset.QueryBuilder queryBuilder = new Asset.QueryBuilder();
+List<Asset> assetList = queryBuilder.list(client);
 ```
 
-```json
+```bash
 // Result
-[
-  {
-    "alias": "BTM",
-    "definition": {
-      "decimals": 8,
-      "description": "Bytom Official Issue",
-      "name": "BTM",
-      "symbol": "BTM"
-    },
-    "id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
-    "issue_program": "",
-    "key_index": 0,
-    "quorum": 0,
-    "raw_definition_byte": "7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a20224279746f6d204f6666696369616c204973737565222c0a2020226e616d65223a202262746d222c0a20202273796d626f6c223a202262746d220a7d",
-    "type": "internal",
-    "vm_version": 1,
-    "xpubs": null
-  },
-  {
-    "alias": "SILVER",
-    "definition": null,
-    "id": "50ec80b6bc48073f6aa8fa045131a71213c33f3681203b15ddc2e4b81f1f4730",
-    "issue_program": "ae2029cd61d9ef31d40af7541f9a50831d6317fdb0870249d0564fcfa9a8f843589c5151ad",
-    "key_index": 1,
-    "quorum": 1,
-    "raw_definition_byte": "",
-    "type": "asset",
-    "vm_version": 1,
-    "xpubs": [
-      "34b16ee500615cd325f8b84099f83c1ebecaca67977c5dc9b71ae32ceaf18207f996b0a9725b901d3792689b2babcb60febe3b81a684d9b56b65f67f307d453d"
-    ]
-  }
-]
+[Asset{id='ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', alias='BTM', issuanceProgram='null', keys=null, keyIndex=0, xpubs=null, quorum=0, definition={decimals=8.0, description=Bytom Official Issue, name=BTM, symbol=BTM}, vmVersion=1, type='internal', rawDefinitionByte='7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a20224279746f6d204f6666696369616c204973737565222c0a2020226e616d65223a202242544d222c0a20202273796d626f6c223a202242544d220a7d'}, Asset{id='57ba2e10543e35f682d4e47729da3c6da0372a94b4c6d04fe59bd389e2e68edc', alias='HELLOWORLD', issuanceProgram='null', keys=null, keyIndex=1, xpubs=[f6a16704f745a168642712060e6c5a69866147e21ec2447ae628f87d756bb68cc9b91405ad0a95f004090e864fde472f62ba97053ea109837bc89d63a64040d5], quorum=1, definition={decimals=8.0, description={}, name=GOLD, symbol=GOLD}, vmVersion=1, type='asset', rawDefinitionByte='7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022474f4c44222c0a20202273796d626f6c223a2022474f4c44220a7d'}, Asset{id='c2b370f20c418db3222254270f1c3f4d3a2d65c3fc8090c8a9005b5cf8289cda', alias='GOLD', issuanceProgram='null', keys=null, keyIndex=2, xpubs=[872e6fbe0ad47b0ff6435bcc4c18fd0c00631afe6c4433938fd7059f32d9c26bb888d0f112cbc07880a1d9ef50111154fa34570233bda070503f6fbe94daf974], quorum=1, definition=null, vmVersion=1, type='asset', rawDefinitionByte='7b7d'}]
 ```
 
 ## update-asset-alias
@@ -183,15 +137,22 @@ BytomClient::listAssets();
 
 ##### 例子
 
-```php
-BytomClient::updateAssetAlias($asset_id, $alias);
+```java
+Client client = TestUtils.generateClient();
+Asset.QueryBuilder queryBuilder = new Asset.QueryBuilder();
+String id = queryBuilder.list(client).get(1).id;
+String alias = "HELLOWORLD";
+//修改列表中下标为1的资产别名
+Asset.AliasUpdateBuilder aliasUpdateBuilder =
+    new Asset.AliasUpdateBuilder()
+    .setAlias(alias)
+    .setAssetId(id);
+aliasUpdateBuilder.update(client);
 ```
 
-```json
-// Request
-curl -X POST update-asset-alias -d '{"id":"50ec80b6bc48073f6aa8fa045131a71213c33f3681203b15ddc2e4b81f1f4730", "alias":"GOLD"}'
-
+```bash
 // Result
+[Asset{id='57ba2e10543e35f682d4e47729da3c6da0372a94b4c6d04fe59bd389e2e68edc', alias='HELLOWORLD', issuanceProgram='null', keys=null, keyIndex=1, xpubs=[f6a16704f745a168642712060e6c5a69866147e21ec2447ae628f87d756bb68cc9b91405ad0a95f004090e864fde472f62ba97053ea109837bc89d63a64040d5], quorum=1, definition={decimals=8.0, description={}, name=GOLD, symbol=GOLD}, vmVersion=1, type='asset', rawDefinitionByte='7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022474f4c44222c0a20202273796d626f6c223a2022474f4c44220a7d'}]
 ```
 
 ## list-balances
@@ -215,27 +176,15 @@ none
 
 列出所有可用的帐户余额。
 
-```js
-// Request
-curl -X POST list-balances -d {}
+```java
+Client client = TestUtils.generateClient();
+List<Balance> balanceList = new Balance.QueryBuilder().list(client);
+Assert.assertNotNull(balanceList);
+```
 
+```bash
 // Result
-[
-    {
-      "account_alias": "default",
-      "account_id": "0BDQ9AP100A02",
-      "amount": 35508000000000,
-      "asset_alias": "BTM",
-      "asset_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-    },
-    {
-      "account_alias": "alice",
-      "account_id": "0BDQARM800A04",
-      "amount": 60000000000,
-      "asset_alias": "BTM",
-      "asset_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-    }
-]
+[{"account_alias": "default","account_id": "0BDQ9AP100A02","amount": 35508000000000,"asset_alias": "BTM","asset_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"},{"account_alias": "alice","account_id": "0BDQARM800A04","amount": 60000000000,"asset_alias": "BTM", "asset_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"}]
 ```
 
 ## list-unspent-outputs
@@ -244,7 +193,7 @@ curl -X POST list-balances -d {}
 
 #### 参数
 
-- `String` - *id*, 未花费的输出id
+- `String` - *alias*, 未花费的输出alias
 
 ##### 返回
 
@@ -265,12 +214,13 @@ curl -X POST list-balances -d {}
 
 ##### 例子
 
-列出所有可用的未使用输出：
-```php
-BytomClient::listUnspentOutPuts($id);
+按资产别名查找所有可用的未使用输出：
+```java
+Balance balance = new Balance.QueryBuilder().listByAssetAlias(client, "BTM");
+Assert.assertNotNull(balance);
 ```
 
-```json
+```bash
 // Result
 [
   {
@@ -305,15 +255,12 @@ BytomClient::listUnspentOutPuts($id);
   }
 ]
 ```
-列出与给定id匹配的未使用的输出：
-```php
-$id = "58f29f0f85f7bd2a91088bcbe536dee41cd0642dfb1480d3a88589bdbfd642d9"
-BytomClient::listUnspentOutPuts($id);
+按账户别名查找所有可用的未使用输出：
+```java
+List<Balance> balanceList = new Balance.QueryBuilder().listByAccountAlias(client, "test");
+Assert.assertNotNull(balanceList);
 ```
-```js
-// Request
-curl -X POST list-unspent-outputs -d '{"id": "58f29f0f85f7bd2a91088bcbe536dee41cd0642dfb1480d3a88589bdbfd642d9"}'
-
+```bash
 // Result
 {
   "account_alias": "alice",

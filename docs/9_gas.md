@@ -17,12 +17,13 @@ none
 - `Integer` - *gas_rate*, gas 费率.
 
 ##### 例子
-```php
-BytomClient::gasRate();
+```java
+Client client = TestUtils.generateClient();
+gasRate = CoreConfig.getGasRate(client);
+Assert.assertNotNull(gasRate);
 ```
-```js
+```bash
 // Result
-{
-  "gas_rate": 1000
-}
+0    INFO  [2019-04-24 14:26:24]  gas-rate:
+2    INFO  [2019-04-24 14:26:24]  200
 ```
