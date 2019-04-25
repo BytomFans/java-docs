@@ -60,7 +60,6 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/docusaurus.svg`} />
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
@@ -104,12 +103,7 @@ class Index extends React.Component {
     const TryOut = () => (
       <Block id="try">
         {[
-          // {
-          //   content: 'Talk about trying this out',
-          //   image: `${baseUrl}img/docusaurus.svg`,
-          //   imageAlign: 'left',
-          //   title: 'Try it Out',
-          // },
+         
         ]}
       </Block>
     );
@@ -117,13 +111,7 @@ class Index extends React.Component {
     const Description = () => (
       <Block background="dark">
         {[
-          // {
-          //   content:
-          //     'This is another description of how this project is useful',
-          //   image: `${baseUrl}img/docusaurus.svg`,
-          //   imageAlign: 'right',
-          //   title: 'Description',
-          // },
+          
         ]}
       </Block>
     );
@@ -131,12 +119,7 @@ class Index extends React.Component {
     const LearnHow = () => (
       <Block background="light">
         {[
-          // {
-          //   content: 'Talk about learning how to use this',
-          //   image: `${baseUrl}img/docusaurus.svg`,
-          //   imageAlign: 'right',
-          //   title: 'Learn How',
-          // },
+         
         ]}
       </Block>
     );
@@ -144,18 +127,7 @@ class Index extends React.Component {
     const Features = () => (
       <Block layout="fourColumn">
         {[
-          // {
-          //   content: 'This is the content of my feature',
-          //   image: `${baseUrl}img/docusaurus.svg`,
-          //   imageAlign: 'top',
-          //   title: 'Feature One',
-          // },
-          // {
-          //   content: 'The content of my second feature',
-          //   image: `${baseUrl}img/docusaurus.svg`,
-          //   imageAlign: 'top',
-          //   title: 'Feature Two',
-          // },
+         
         ]}
       </Block>
     );
@@ -179,7 +151,7 @@ class Index extends React.Component {
         <div className="">
           <h2></h2>
           <p></p>
-          <div className="logos"></div>
+         
         </div>
       );
     };
@@ -192,7 +164,7 @@ class Index extends React.Component {
           <FeatureCallout />
           <LearnHow />
           <TryOut />
-          <Description />
+        
           <Showcase />
         </div>
       </div>

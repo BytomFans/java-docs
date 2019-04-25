@@ -1,10 +1,9 @@
 ---
 id: sign
-title: transaction sign
-sidebar_label: 交易签名
+title: tx-signer
+sidebar_label: tx-signer
 ---
 
-## tx-signer
 
 严格来说，tx-signer并不属于SDK，它是bytomd中构建交易、对交易签名两大模块的java实现版。因此，若想用tx-signer对交易进行离线签名，需要由你在本地保管好自己的私钥。
 
