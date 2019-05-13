@@ -26,11 +26,10 @@
 
 ### 本地运行
 
-1. `使用命令 `yarn start` or `npm start`运行网站.
+1. 使用命令 `yarn start` or `npm start`运行网站.
 2. 如果没有自动打开本地的示例网站，请在 [http://localhost:3000](http://localhost:3000/) 访问站点.
 
-
-![img](img/example.png)
+![](./img/example.png)
 
 ### 目录结构
 
