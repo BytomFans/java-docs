@@ -30,7 +30,7 @@
 2. 如果没有自动打开本地的示例网站，请在 [http://localhost:3000](http://localhost:3000/) 访问站点.
 
 
-![img](./img/example.png)
+![img](img/example.png)
 
 ### 目录结构
 
