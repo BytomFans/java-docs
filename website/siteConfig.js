@@ -21,8 +21,8 @@ const users = [{
 const siteConfig = {
     title: 'Bytom Java API文档', // Title for your website.
     tagline: 'A website for Bytom Java SDK',
-    url: 'https://bytomfans.github.io/java-docs/', // Your website URL
-    baseUrl: '/', // Base URL for your project */
+    url: 'https://bytomfans.github.io', // Your website URL
+    baseUrl: '/java-docs/', // Base URL for your project */
     // For github.io type URLs, you would set the url and baseUrl like:
     //   url: 'https://facebook.github.io',
     //   baseUrl: '/test-site/',
