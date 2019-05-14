@@ -34,6 +34,7 @@ git clone https://github.com/BytomFans/java-docs.git
 ### 概述
 
 如果您希望对文档进行编辑或添加，那么您可以查看`docs/`目录。如果您想要编辑站点构建方式的内部结构，本机战点是使用docusaurus生成的静态网站，因此您需要熟悉站点的构建方式。网站配置可以在`website/`目录中找到，您可以访问[docusaurus网站](<https://docusaurus.io/docs/zh-CN/installation>)了解有关所有可用配置选项的更多信息。
+
 ### 目录结构
 
 ```bash
@@ -207,6 +208,6 @@ GIT_USER=<GIT_USER> \
   yarn run publish-gh-pages # or `npm run publish-gh-pages`
 ```
 
-  ### 访问网站
+### 访问网站
 
 在您的github项目setting里选择Github Pages显示的分支。
