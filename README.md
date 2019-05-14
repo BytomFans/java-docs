@@ -41,132 +41,21 @@ git clone https://github.com/BytomFans/java-docs.git
 root-directory
 ├─.circleci
 ├─docs
+├─img
 └─website
-    ├─core
-    ├─node_modules
-    │  └─.staging
-    │      ├─@babel
-    │      │  └─types-8cdb7c68
-    │      │      └─lib
-    │      ├─caniuse-db-2592a44f
-    │      │  └─region-usage-json
-    │      ├─core-js-34ee6f9c
-    │      │  ├─internals
-    │      │  ├─modules
-    │      │  ├─proposals
-    │      │  ├─stable
-    │      │  │  ├─array
-    │      │  │  │  └─virtual
-    │      │  │  ├─array-buffer
-    │      │  │  ├─data-view
-    │      │  │  ├─date
-    │      │  │  ├─dom-collections
-    │      │  │  ├─function
-    │      │  │  │  └─virtual
-    │      │  │  ├─instance
-    │      │  │  ├─json
-    │      │  │  ├─map
-    │      │  │  ├─math
-    │      │  │  ├─number
-    │      │  │  │  └─virtual
-    │      │  │  ├─object
-    │      │  │  ├─promise
-    │      │  │  ├─reflect
-    │      │  │  ├─regexp
-    │      │  │  ├─set
-    │      │  │  ├─string
-    │      │  │  │  └─virtual
-    │      │  │  ├─symbol
-    │      │  │  ├─typed-array
-    │      │  │  ├─url
-    │      │  │  ├─url-search-params
-    │      │  │  ├─weak-map
-    │      │  │  └─weak-set
-    │      │  ├─stage
-    │      │  └─web
-    │      ├─core-js-467a2f2c
-    │      │  ├─modules
-    │      │  ├─proposals
-    │      │  ├─stable
-    │      │  │  ├─array
-    │      │  │  │  └─virtual
-    │      │  │  ├─array-buffer
-    │      │  │  ├─data-view
-    │      │  │  ├─date
-    │      │  │  ├─dom-collections
-    │      │  │  ├─function
-    │      │  │  │  └─virtual
-    │      │  │  ├─instance
-    │      │  │  ├─json
-    │      │  │  ├─map
-    │      │  │  ├─math
-    │      │  │  ├─number
-    │      │  │  │  └─virtual
-    │      │  │  ├─object
-    │      │  │  ├─promise
-    │      │  │  ├─reflect
-    │      │  │  ├─regexp
-    │      │  │  ├─set
-    │      │  │  ├─string
-    │      │  │  │  └─virtual
-    │      │  │  ├─symbol
-    │      │  │  ├─typed-array
-    │      │  │  ├─url
-    │      │  │  ├─url-search-params
-    │      │  │  ├─weak-map
-    │      │  │  └─weak-set
-    │      │  ├─stage
-    │      │  └─web
-    │      ├─core-js-a4423f20
-    │      │  ├─library
-    │      │  │  └─web
-    │      │  ├─modules
-    │      │  │  └─library
-    │      │  ├─stage
-    │      │  └─web
-    │      ├─core-js-pure-5c81a11f
-    │      │  ├─modules
-    │      │  ├─proposals
-    │      │  ├─stable
-    │      │  │  ├─array
-    │      │  │  │  └─virtual
-    │      │  │  ├─array-buffer
-    │      │  │  ├─data-view
-    │      │  │  ├─date
-    │      │  │  ├─dom-collections
-    │      │  │  ├─function
-    │      │  │  │  └─virtual
-    │      │  │  ├─instance
-    │      │  │  ├─json
-    │      │  │  ├─map
-    │      │  │  ├─math
-    │      │  │  ├─number
-    │      │  │  │  └─virtual
-    │      │  │  ├─object
-    │      │  │  ├─promise
-    │      │  │  ├─reflect
-    │      │  │  ├─regexp
-    │      │  │  ├─set
-    │      │  │  ├─string
-    │      │  │  │  └─virtual
-    │      │  │  ├─symbol
-    │      │  │  ├─typed-array
-    │      │  │  ├─url
-    │      │  │  ├─url-search-params
-    │      │  │  ├─weak-map
-    │      │  │  └─weak-set
-    │      │  ├─stage
-    │      │  └─web
-    │      ├─prismjs-64053c3e
-    │      │  └─components
-    │      ├─remarkable-daec167c
-    │      │  └─dist
-    │      └─send-c6c87478
-    ├─pages
-    │  └─en
-    └─static
-        ├─css
-        └─img
+│   ├─core
+│   ├─node_modules
+│   ├─pages
+│   │  └─en
+│   └─static
+│       ├─css
+│       └─img
+├─.dockerignore
+├─.gitignore
+├─docker-compose.yml
+├─Dockerfile
+├─package-lock.json
+└─README.md
 ```
 
 ### 网站配置 
