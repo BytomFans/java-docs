@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Block API · Bytom Java API文档</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;get-block-count&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#get-block-count&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;get-block-count&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Block API · Bytom Java API文档"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bytomfans.github.io/java-docs/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;get-block-count&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#get-block-count&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;get-block-count&lt;/h2&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/java-docs/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/java-docs/css/main.css"/><script src="/java-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/java-docs/"><h2 class="headerTitle">Bytom Java API文档</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/java-docs/docs/start" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API 中文文档</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-docs/docs/build">搭建节点</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/start">SDK环境配置</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API 中文文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-docs/docs/sign">tx-signer</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/key">Bytom.Key.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/account">Bytom.Account.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/asset">Bytom.Asset.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/transaction">Bytom.Transaction.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/wallet">Bytom.Wallet.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/access_token">Bytom.Access_token.API</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/java-docs/docs/block">Bytom.Block.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/gas">Bytom.Gas.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/message">Bytom.Message.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/feed">Bytom.Feed.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/net_info">Bytom.New_info.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/other">Bytom.Other.API</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Block API</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="get-block-count"></a><a href="#get-block-count" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-block-count</h2>
+<p>返回当前区块链的高度.</p>
+<h4><a class="anchor" aria-hidden="true" id="参数"></a><a href="#参数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<p>none</p>
+<h4><a class="anchor" aria-hidden="true" id="返回"></a><a href="#返回" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>Integer</code> - <em>block_count</em>, 当前的区块高度.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子"></a><a href="#例子" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+<span class="hljs-keyword">int</span> count = Block.getBlockCount(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+get-block-count:220928
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-block-hash"></a><a href="#get-block-hash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-block-hash</h2>
+<p>返回当前区块的hash.</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-1"></a><a href="#参数-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<p>none</p>
+<h4><a class="anchor" aria-hidden="true" id="返回-1"></a><a href="#返回-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>String</code> - <em>block_hash</em>, 最近的区块hash.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-1"></a><a href="#例子-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+String blockHash = Block.getBlockHash(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+get-block-hash:1f95cdb223af190f2a9aced5931e0845e3e9f89d5e6bbb1605a2df725bcda67c
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-block"></a><a href="#get-block" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-block</h2>
+<p>区块高度或块哈希返回详细信息块。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-2"></a><a href="#参数-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<p><code>Object</code>: block_height | block_hash</p>
+<p>可选:</p>
+<ul>
+<li><code>String</code> - <em>block_hash</em>, 区块hash.</li>
+<li><code>Integer</code> - <em>block_height</em>, 区块高度.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回-2"></a><a href="#返回-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<p><code>Object</code>:</p>
+<ul>
+<li><p><code>String</code> - <em>hash</em>, 区块hash.</p></li>
+<li><p><code>Integer</code> - <em>size</em>, 区块大小.</p></li>
+<li><p><code>Integer</code> - <em>version</em>, 区块版本.</p></li>
+<li><p><code>Integer</code> - <em>height</em>, 区块高度.</p></li>
+<li><p><code>String</code> - <em>previous_block_hash</em>, 前一个区块hash.</p></li>
+<li><p><code>Integer</code> - <em>timestamp</em>, 区块时间戳.</p></li>
+<li><p><code>Integer</code> - <em>nonce</em>, 随机数值.</p></li>
+<li><p><code>Integer</code> - <em>bits</em>, 区块难度.</p></li>
+<li><p><code>String</code> - <em>difficulty</em>, 难度值(String type).</p></li>
+<li><p><code>String</code> - <em>transaction_merkle_root</em>, 交易的默克尔根.</p></li>
+<li><p><code>String</code> - <em>transaction_status_hash</em>, 交易状态的默克尔根.</p></li>
+<li><p><code>Array of Object</code>- * transactions*, 交易对象:</p>
+<ul>
+<li><p><code>String</code> - <em>id</em>, transaction id, 交易hash.</p></li>
+<li><p><code>Integer</code> - <em>version</em>, 交易版本.</p></li>
+<li><p><code>Integer</code> - <em>size</em>, 交易大小.</p></li>
+<li><p><code>Integer</code> - <em>time_range</em>, 响应请求时的unix时间戳.</p></li>
+<li><p><code>Boolean</code> - <em>status_fail</em>, 请求状态是否是失败的.</p></li>
+<li><p><code>String</code> - <em>mux_id</em>, 前一笔交易的mux id(utxo的源ID).</p></li>
+<li><p><code>Array of Object</code>- <em>inputs</em>, 交易对象的输入.</p>
+<ul>
+<li><code>String</code> - <em>type</em>, 输入操作的类型，可用选项包括: 'spend', 'issue', 'coinbase'.</li>
+<li><code>String</code> - <em>asset_id</em>, 资产id.</li>
+<li><code>String</code> - <em>asset_alias</em>, 资产名字.</li>
+<li><code>Object</code> - <em>asset_definition</em>, 资产定义(json 对象).</li>
+<li><code>Integer</code> - <em>amount</em>, 资产数量.</li>
+<li><code>Object</code> - <em>issuance_program</em>, issuance program, 当交易类型为'issue'.</li>
+<li><code>Object</code> - <em>control_program</em>, control program of account, 当交易类型为'spend'.</li>
+<li><code>String</code> - <em>address</em>, 账户地址, 当类型是'spend'时存在.</li>
+<li><code>String</code> - <em>spent_output_id</em>, the front of outputID to be spent in this input, 当交易类型为'spend'.</li>
+<li><code>String</code> - <em>account_id</em>, 账户id.</li>
+<li><code>String</code> - <em>account_alias</em>, 账户名字.</li>
+<li><code>Object</code> - <em>arbitrary</em>, 任意信息都可以由矿工设置，当交易类型为'coinbase'时.</li>
+</ul></li>
+<li><p><code>Array of Object</code> - <em>outputs</em> , 交易输出对象.</p>
+<ul>
+<li><code>String</code> - <em>type</em>, 输出action的类型，可选项包括:&quot;retire&quot;,&quot;control&quot;.</li>
+<li><code>String</code> - <em>id</em>, 与utxo相关的交易输出id.</li>
+<li><code>Integer</code> - <em>position</em>, 输出的位置.</li>
+<li><code>String</code> - <em>asset_id</em>, 资产id.</li>
+<li><code>String</code> - <em>asset_alias</em>, 资产名字.</li>
+<li><code>Object</code> - <em>asset_definition</em>, 资产定义(json 对象).</li>
+<li><code>Integer</code> - <em>amount</em>, 资产数量.</li>
+<li><code>String</code> - <em>account_id</em>, 账户id.</li>
+<li><code>String</code> - <em>account_alias</em>, 账户名字.</li>
+<li><code>Object</code> - <em>control_program</em>, 账户的控制程序.</li>
+<li><code>String</code> - <em>address</em>, 账户地址.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-2"></a><a href="#例子-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<p>通过block_hash或block_height获取指定的块信息，如果两者都存在，则块结果通过哈希查询。</p>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+<span class="hljs-keyword">int</span> height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block block = <span class="hljs-keyword">new</span> Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getBlock(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"bits"</span>: 2305843009222082600,
+  <span class="hljs-string">"difficulty"</span>: <span class="hljs-string">"5549086336"</span>,
+  <span class="hljs-string">"hash"</span>: <span class="hljs-string">"886a8e85b275e7d65b569ba510875c0e63dece1a94569914d7624c0dac8002f9"</span>,
+  <span class="hljs-string">"height"</span>: 43,
+  <span class="hljs-string">"nonce"</span>: 3,
+  <span class="hljs-string">"previous_block_hash"</span>: <span class="hljs-string">"2c72ccbd53b92a4f9423c5b610b4e106bbe8fbf3ecf2e16a1266b17ee323ff9d"</span>,
+  <span class="hljs-string">"size"</span>: 386,
+  <span class="hljs-string">"timestamp"</span>: 1521614189,
+  <span class="hljs-string">"transaction_merkle_root"</span>: <span class="hljs-string">"77d40262cfeca3a16d4587132974552ef00951e43ce567a26801ebc3dbdb4d96"</span>,
+  <span class="hljs-string">"transaction_status_hash"</span>: <span class="hljs-string">"53c0ab896cb7a3778cc1d35a271264d991792b7c44f5c334116bb0786dbc5635"</span>,
+  <span class="hljs-string">"transactions"</span>: [
+    {
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"4576b1b1ec251da3263dbdd5486bcbf9a1cd1f712172dbe7a7a5fe46ab194629"</span>,
+      <span class="hljs-string">"inputs"</span>: [
+        {
+          <span class="hljs-string">"amount"</span>: 0,
+          <span class="hljs-string">"arbitrary"</span>: <span class="hljs-string">"09"</span>,
+          <span class="hljs-string">"asset_definition"</span>: <span class="hljs-string">"7b7d"</span>,
+          <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span>,
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"coinbase"</span>
+        }
+      ],
+      <span class="hljs-string">"mux_id"</span>: <span class="hljs-string">"2383cefe8a34ea5810cc0706f2cf8cf08a106f90fc3eb3441f723cecdbc61331"</span>,
+      <span class="hljs-string">"outputs"</span>: [
+        {
+          <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1q4pkg8msjumtep7ecsdzuct3tsuzk5pmnm3p8nr"</span>,
+          <span class="hljs-string">"amount"</span>: 624000000000,
+          <span class="hljs-string">"asset_definition"</span>: <span class="hljs-string">"7b7d"</span>,
+          <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+          <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014f3403bcd8b443d03882a280b50f6f98986e1a255"</span>,
+          <span class="hljs-string">"id"</span>: <span class="hljs-string">"da87b40854a9b93be72ecdc24fe7bb03986ea3530e344b0f918f0788c3d83717"</span>,
+          <span class="hljs-string">"position"</span>: 0,
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+        }
+      ],
+      <span class="hljs-string">"size"</span>: 77,
+      <span class="hljs-string">"status_fail"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">"time_range"</span>: 0,
+      <span class="hljs-string">"version"</span>: 1
+    }
+  ],
+  <span class="hljs-string">"version"</span>: 1
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-block-header"></a><a href="#get-block-header" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-block-header</h2>
+<p>按块高度或块哈希返回详细信息块标头。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-3"></a><a href="#参数-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<p><code>Object</code>: block_height | block_hash</p>
+<p>可选:</p>
+<ul>
+<li><code>String</code> - <em>block_hash</em>, 区块hash.</li>
+<li><code>Integer</code> - <em>block_height</em>, 区块高度.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回-3"></a><a href="#返回-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>Object</code> - <em>block_header</em>, 区块头.</li>
+<li><code>Integer</code> - <em>reward</em>, 区块奖励.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-3"></a><a href="#例子-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+<span class="hljs-keyword">int</span> height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block.BlockHeader blockHeader = <span class="hljs-keyword">new</span> Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getBlockHeader(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"block_header"</span>: <span class="hljs-string">"01019601e87da37e7d73f31d54304c719c9058ec7bc7de7819deda89a7c8834a99bc05b8fbdbe6d60540eba9e5d5cb79fd87b3c0fad32f6772c1e4483f2a070e093a6176d85226d986a8c9c377e5192668bc0a367e4a4764f11e7c725ecced1d7b6a492974fab1b6d5bc00ad918480808080801e"</span>,
+  <span class="hljs-string">"reward"</span>: 41250000000
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-difficulty"></a><a href="#get-difficulty" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-difficulty</h2>
+<p>通过块高度或块散列返回块高度，当请求为空时返回当前块高度。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-4"></a><a href="#参数-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<ul>
+<li><code>String</code> - <em>block_hash</em>, 区块hash.</li>
+<li><code>Integer</code> - <em>block_height</em>, 区块高度.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回-4"></a><a href="#返回-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>Integer</code> - <em>bits</em>, 区块的位.</li>
+<li><code>String</code> - <em>difficulty</em>, 区块难度.</li>
+<li><code>String</code> - <em>hash</em>, 区块hash.</li>
+<li><code>Integer</code> - <em>height</em>, 区块高度.</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="例子-4"></a><a href="#例子-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h5>
+<p>为当前块或指定的块散列/高度获取困难。</p>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+<span class="hljs-keyword">int</span> height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block.BlockDifficulty blockDifficulty = <span class="hljs-keyword">new</span> Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getBlockDifficulty(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"bits"</span>: 2161727821137910500,
+  <span class="hljs-string">"difficulty"</span>: <span class="hljs-string">"15154807"</span>,
+  <span class="hljs-string">"hash"</span>: <span class="hljs-string">"d1fce60caea5466eae2b812e4586b55120c52aca27b6c92bd7c51e9cda82dcdf"</span>,
+  <span class="hljs-string">"height"</span>: 506
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-hash-rate"></a><a href="#get-hash-rate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-hash-rate</h2>
+<p>通过块高度或块散列返回块散列率，当请求为空时，它返回当前块散列率。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-5"></a><a href="#参数-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<ul>
+<li><code>String</code> - <em>block_hash</em>, 区块hash.</li>
+<li><code>Integer</code> - <em>block_height</em>, 区块高度.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回-5"></a><a href="#返回-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>Integer</code> - <em>hash_rate</em>, 区块的出块难度.</li>
+<li><code>String</code> - <em>hash</em>, 区块 hash.</li>
+<li><code>Integer</code> - <em>height</em>, 区块 height.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-5"></a><a href="#例子-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<p>获取当前块或指定块散列/高度的哈希率。</p>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+<span class="hljs-keyword">int</span> height = Block.getBlockCount(client);
+String blockHash = Block.getBlockHash(client);
+
+Block.BlockHashRate blockHashRate = <span class="hljs-keyword">new</span> Block.QueryBuilder()
+    .setBlockHeight(height)
+    .setBlockHash(blockHash)
+    .getHashRate(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{<span class="hljs-string">"hash"</span>:<span class="hljs-string">"1f95cdb223af190f2a9aced5931e0845e3e9f89d5e6bbb1605a2df725bcda67c"</span>,<span class="hljs-string">"height"</span>:220928,<span class="hljs-string">"hash_rate"</span>:399323574}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/java-docs/docs/access_token"><span class="arrow-prev">← </span><span>Bytom.Access_token.API</span></a><a class="docs-next button" href="/java-docs/docs/mining"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#get-block-count">get-block-count</a></li><li><a href="#get-block-hash">get-block-hash</a></li><li><a href="#get-block">get-block</a></li><li><a href="#get-block-header">get-block-header</a></li><li><a href="#get-difficulty">get-difficulty</a></li><li><a href="#get-hash-rate">get-hash-rate</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap">//</section>//<section class="copyright">Copyright © 2019 Bytom Community</section></footer></div></body></html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Account API · Bytom Java API文档</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;creat-account&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#creat-account&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;creat-account&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Account API · Bytom Java API文档"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bytomfans.github.io/java-docs/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;creat-account&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#creat-account&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;creat-account&lt;/h2&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/java-docs/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/java-docs/css/main.css"/><script src="/java-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/java-docs/"><h2 class="headerTitle">Bytom Java API文档</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/java-docs/docs/start" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API 中文文档</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-docs/docs/build">搭建节点</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/start">SDK环境配置</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API 中文文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-docs/docs/sign">tx-signer</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/key">Bytom.Key.API</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/java-docs/docs/account">Bytom.Account.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/asset">Bytom.Asset.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/transaction">Bytom.Transaction.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/wallet">Bytom.Wallet.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/access_token">Bytom.Access_token.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/block">Bytom.Block.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/gas">Bytom.Gas.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/message">Bytom.Message.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/feed">Bytom.Feed.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/net_info">Bytom.New_info.API</a></li><li class="navListItem"><a class="navItem" href="/java-docs/docs/other">Bytom.Other.API</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Account API</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="creat-account"></a><a href="#creat-account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>creat-account</h2>
+<p>创建账户以管理地址。单签账户只包含一个root_xpubs且quorum默认为1 ；但是多签账户包含许多root_xpubs且quorum不为1。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数"></a><a href="#参数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<ul>
+<li><p><code>Array of Sring</code> -  <em>root_xpubs</em>, 公钥数组</p></li>
+<li><p><code>String</code> - <em>alias</em>, 账户名称</p></li>
+<li><p><code>Integer</code> - <em>quorum</em>, 默认值为1，范围是[1,len(root_xpubs)]，交易必须要由所有控制资产单位的账户密钥签名</p></li>
+</ul>
+<p>Optional:</p>
+<ul>
+<li><code>String</code> - <em>access_token</em>， 在本地创建账户时可不填，如果是远程创建账户则是必不可少的</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回"></a><a href="#返回" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><p><code>String</code> - <em>id</em>, 账户id</p></li>
+<li><p><code>String</code> - <em>alias</em>, 账户名称</p></li>
+<li><p><code>Integer</code> - <em>key_index</em>, 账户key的索引</p></li>
+<li><p><code>Integer</code> - <em>quorom</em>, 交易必须要由所有控制资产单位的账户密钥签名</p></li>
+<li><p><code>Array of Object</code> -  <em>xpubs</em>, 公钥数组</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子"></a><a href="#例子" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+String alias = <span class="hljs-string">"AccountTest.testAccountCreate.002"</span>;
+Integer quorum = <span class="hljs-number">1</span>;
+List&lt;String&gt; root_xpubs = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+root_xpubs.add(<span class="hljs-string">"c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5"</span>);
+Account.Builder builder = <span class="hljs-keyword">new</span> Account.Builder().setAlias(alias).setQuorum(quorum).setRootXpub(root_xpubs);
+Account account = Account.create(client, builder);
+System.out.println(account);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+INFO  [2019-04-23 16:39:23]  create-account
+INFO  [2019-04-23 16:39:23]  Account{id=<span class="hljs-string">'0RKNGHTRG0A08'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'accounttest.testaccountcreate.002'</span>, key_index=3, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}
+Account{id=<span class="hljs-string">'0RKNGHTRG0A08'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'accounttest.testaccountcreate.002'</span>, key_index=3, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="list-accounts"></a><a href="#list-accounts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list-accounts</h2>
+<p>返回所有可用账户的列表。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-1"></a><a href="#参数-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<p>none</p>
+<h4><a class="anchor" aria-hidden="true" id="返回-1"></a><a href="#返回-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>Array of Object</code>, 账户数组
+<ul>
+<li><code>String</code> - <em>id</em>, 账户id</li>
+<li><code>String</code> - <em>alias</em>, 公钥名称</li>
+<li><code>Integer</code> - <em>key_index</em>, 账户密钥的索引</li>
+<li><code>Integer</code> - quorom,  交易必须要由所有控制资产单位的账户密钥签名</li>
+<li><code>Array of Object</code> - xpubs, 公钥数组</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-1"></a><a href="#例子-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+List&lt;Account&gt; accountList = Account.list(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+INFO  [2019-04-23 16:47:25]  list-accounts:
+INFO  [2019-04-23 16:47:25]  size of accountList:3
+INFO  [2019-04-23 16:47:25]  [Account{id=<span class="hljs-string">'0QRSNOQE00A02'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'alice'</span>, key_index=1, quorum=1, xpubs=[872e6fbe0ad47b0ff6435bcc4c18fd0c00631afe6c4433938fd7059f32d9c26bb888d0f112cbc07880a1d9ef50111154fa34570233bda070503f6fbe94daf974]}, Account{id=<span class="hljs-string">'0RKCD5TR00A04'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'accounttest.testaccountcreate.002'</span>, key_index=1, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}, Account{id=<span class="hljs-string">'0RKCF7B800A06'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'accounttest.testaccountcreate.002'</span>, key_index=2, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}, Account{id=<span class="hljs-string">'0RKNGHTRG0A08'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'accounttest.testaccountcreate.002'</span>, key_index=3, quorum=1, xpubs=[c4b25825e92cd8623de4fd6a35952ad0efb2ed215fdb1b40754f0ed12eff7827d147d1e8b003601ba2f78a4a84dcc77e93ed282633f2679048c5d5ac5ea10cb5]}]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="delete-account"></a><a href="#delete-account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>delete-account</h2>
+<p>删除现有账户，请确保相关地址中没有余额。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-2"></a><a href="#参数-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<ul>
+<li><code>String</code> - <em>account-info</em>,　账户别名或者id</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回-2"></a><a href="#返回-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<p>如果账户已成功删除，则为none</p>
+<h4><a class="anchor" aria-hidden="true" id="例子-2"></a><a href="#例子-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+String id = <span class="hljs-string">"0QRSNOQE00A02"</span>;
+Account.delete(client, id);
+</code></pre>
+<pre><code class="hljs css language-bash">//none
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="create-account-receiver"></a><a href="#create-account-receiver" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create-account-receiver</h2>
+<p>创建地址和控制程序，地址和控制程序是一对一的关系。在构建交易API中，接收器是动作类型为control_address时的地址，接收器是动作类型为control_program时的控制程序，它们是相同的结果。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-3"></a><a href="#参数-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<p><code>Object</code>: <em>account_alias | account_id</em>, 账户别名或账户id
+可选：</p>
+<ul>
+<li><code>String</code> - <em>account_alias</em>, 账户别名</li>
+<li><code>String</code> - <em>account_id</em>, 账户id</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回-3"></a><a href="#返回-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>String</code> - <em>address</em>, 账户地址</li>
+<li><code>String</code> - <em>control_program</em>, 账户的控制程序</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-3"></a><a href="#例子-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+String alias = <span class="hljs-string">"test1"</span>;
+String id = <span class="hljs-string">"0RKNGHTRG0A08"</span>;
+Account.ReceiverBuilder receiverBuilder = <span class="hljs-keyword">new</span> Account.ReceiverBuilder().setAccountAlias(alias).setAccountId(id);
+
+Receiver receiver = receiverBuilder.create(client);
+System.out.println(receiver);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{<span class="hljs-string">"address"</span>:<span class="hljs-string">"bm1q87xrkeha33sgyn0gtj2pdxfcn22u78263yqfx7"</span>,<span class="hljs-string">"control_program"</span>:<span class="hljs-string">"00143f8c3b66fd8c60824de85c941699389a95cf1d5a"</span>}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="list-addresses"></a><a href="#list-addresses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list-addresses</h2>
+<p>按账户返回所有可用地址的列表。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-4"></a><a href="#参数-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<ul>
+<li><code>String</code> - <em>account_alias</em>, 账户别名</li>
+<li><code>String</code> - <em>account_id</em>, 账户id</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="返回-4"></a><a href="#返回-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回</h4>
+<ul>
+<li><code>String</code> - <em>account_alias</em>, 账户别名.</li>
+<li><code>String</code> - <em>account_id</em>, 账户id.</li>
+<li><code>String</code> - <em>address</em>, 账户地址.</li>
+<li><code>Boolean</code> - <em>change</em>, 账户地址是否改变.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-4"></a><a href="#例子-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+String alias = <span class="hljs-string">"test1"</span>;
+String id = <span class="hljs-string">"0RKNGHTRG0A08"</span>;
+Account.AddressBuilder addressBuilder = <span class="hljs-keyword">new</span> Account.AddressBuilder().setAccountId(id).setAccountAlias(alias);
+
+List&lt;Account.Address&gt; addressList = addressBuilder.list(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+[
+  {
+    <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+    <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"086KQD75G0A02"</span>,
+    <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qcn9lf7nxhswratvmg6d78nq7r7yupm36qgsv55"</span>,
+    <span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
+  },
+  {
+    <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+    <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"086KQD75G0A02"</span>,
+    <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qew4h5uvt5ssrtg2alms0j77r94c30m78ucrcxy"</span>,
+    <span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
+  },
+  {
+    <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+    <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"086KQD75G0A02"</span>,
+    <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qgnp4lte7wge0rsekevjlrdh39vkzz0c2alheue"</span>,
+    <span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
+  }
+]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="validate-address"></a><a href="#validate-address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>validate-address</h2>
+<p>验证地址是否有效，并判断地址是否为自己。</p>
+<h4><a class="anchor" aria-hidden="true" id="参数-5"></a><a href="#参数-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参数</h4>
+<ul>
+<li><code>String</code> - <em>address</em>，账户地址</li>
+</ul>
+<p>####　返回</p>
+<ul>
+<li><p><code>Boolean</code> - <em>vaild</em>，账户地址是否有效</p></li>
+<li><p><code>Boolean</code> - <em>is_local</em>，账户地址是否是本地地址</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="例子-5"></a><a href="#例子-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例子</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+String alias = <span class="hljs-string">"test1"</span>;
+String id = <span class="hljs-string">"0RKNGHTRG0A08"</span>;
+
+Account.AddressBuilder addressBuilder = <span class="hljs-keyword">new</span> Account.AddressBuilder().setAccountId(id).setAccountAlias(alias);
+List&lt;Account.Address&gt; addressList = addressBuilder.list(client);
+
+Account.Address address = addressBuilder.validate(client, addressList.get(<span class="hljs-number">0</span>).address);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{<span class="hljs-string">"is_local"</span>:<span class="hljs-literal">true</span>}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/java-docs/docs/key"><span class="arrow-prev">← </span><span>Bytom.Key.API</span></a><a class="docs-next button" href="/java-docs/docs/asset"><span>Bytom.Asset.API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#creat-account">creat-account</a></li><li><a href="#list-accounts">list-accounts</a></li><li><a href="#delete-account">delete-account</a></li><li><a href="#create-account-receiver">create-account-receiver</a></li><li><a href="#list-addresses">list-addresses</a></li><li><a href="#validate-address">validate-address</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap">//</section>//<section class="copyright">Copyright © 2019 Bytom Community</section></footer></div></body></html>
